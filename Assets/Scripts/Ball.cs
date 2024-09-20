@@ -17,8 +17,8 @@ public class Ball : MonoBehaviour
 
     private void Start()
     {
-        paddleTransform = GameObject.FindGameObjectWithTag("Paddle").transform;
-        ResetBall();
+        //paddleTransform = GameObject.FindGameObjectWithTag("Paddle").transform;
+        //ResetBall();
     }
 
     private void Update()
@@ -37,7 +37,7 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            StickToPaddle();
+            //StickToPaddle();
         }
     }
 

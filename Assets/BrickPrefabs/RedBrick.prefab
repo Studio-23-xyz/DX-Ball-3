@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1055065599423843422
+--- !u!1001 &864800039841770614
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,13 +11,23 @@ PrefabInstance:
     - target: {fileID: 534804146086615082, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
       propertyPath: m_Name
-      value: Brick Variant 3
+      value: RedBrick
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615082, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615082, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_TagString
+      value: RedBrick
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615083, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: fae375f9c3347604890ddde51bb04cdb,
+      objectReference: {fileID: 21300000, guid: 29b216241e1f20f49886da2497116d74,
         type: 3}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
@@ -26,8 +36,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -12.75
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
@@ -77,12 +102,22 @@ PrefabInstance:
     - target: {fileID: 534804146086615085, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
       propertyPath: health
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615085, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
-      propertyPath: states.Array.size
-      value: 2
+      propertyPath: maxHealth
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215361930506577237, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 4.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1215361930506577237, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 4.77
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -8,6 +8,16 @@ TagManager:
   - Paddle
   - Wall
   - Brick
+  - BlueBall
+  - GreenBall
+  - YellowBall
+  - OrangeBall
+  - RedBall
+  - BlueBrick
+  - GreenBrick
+  - YellowBrick
+  - OrangeBrick
+  - RedBrick
   layers:
   - Default
   - TransparentFX

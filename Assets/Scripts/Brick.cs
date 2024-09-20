@@ -3,16 +3,16 @@
 [RequireComponent(typeof(BoxCollider2D))]
 public class Brick : MonoBehaviour
 {
-    public Sprite[] states = new Sprite[0];
-    public int points = 100;
-    public bool unbreakable;
+    public int Points = 100;
+    public bool Unbreakable;
+    public int MaxHealth = 5; 
 
-    private SpriteRenderer spriteRenderer;
-    private int health;
+    private SpriteRenderer _spriteRenderer;
+    private int _currentHealth;
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Start()
@@ -23,36 +23,48 @@ public class Brick : MonoBehaviour
     public void ResetBrick()
     {
         gameObject.SetActive(true);
+        _currentHealth = MaxHealth; 
 
-        if (!unbreakable)
-        {
-            health = states.Length;
-            spriteRenderer.sprite = states[health - 1];
-        }
+        UpdateBrickTransparency();
     }
 
     private void Hit()
     {
-        if (unbreakable) {
+        if (Unbreakable)
+        {
             return;
         }
 
-        health--;
+        _currentHealth--;
 
-        if (health <= 0) {
+        if (_currentHealth <= 0)
+        {
             gameObject.SetActive(false);
-        } else {
-            spriteRenderer.sprite = states[health - 1];
+        }
+        else
+        {
+            UpdateBrickTransparency();
         }
 
         GameManager.Instance.OnBrickHit(this);
     }
 
+    private void UpdateBrickTransparency()
+    {
+        float alpha = (float)_currentHealth / MaxHealth;
+        Color color = _spriteRenderer.color;
+        color.a = alpha; 
+        _spriteRenderer.color = color;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ball") {
+        string brickTag = gameObject.tag;
+        string ballTag = collision.gameObject.tag;
+
+        if (brickTag == ballTag.Replace("Ball", "Brick"))
+        {
             Hit();
         }
     }
-
 }

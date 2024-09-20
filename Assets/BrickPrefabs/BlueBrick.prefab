@@ -11,28 +11,32 @@ PrefabInstance:
     - target: {fileID: 534804146086615082, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
       propertyPath: m_Name
-      value: Brick Variant 4
+      value: BlueBrick
       objectReference: {fileID: 0}
-    - target: {fileID: 534804146086615083, guid: cf757f52d920c7c409a6e190166c5d28,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 9291c8a2243a8954aa4836cbb3d8cd46,
-        type: 3}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
-      propertyPath: m_RootOrder
-      value: 2
+      propertyPath: m_LocalScale.x
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.5
+      value: 9.202356
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -4.483921
       objectReference: {fileID: 0}
     - target: {fileID: 534804146086615084, guid: cf757f52d920c7c409a6e190166c5d28,
         type: 3}
@@ -73,11 +77,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 534804146086615085, guid: cf757f52d920c7c409a6e190166c5d28,
-        type: 3}
-      propertyPath: states.Array.size
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

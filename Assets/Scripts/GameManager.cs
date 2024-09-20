@@ -112,11 +112,11 @@ public class GameManager : MonoBehaviour
 
     public void OnBrickHit(Brick brick)
     {
-        score += brick.points;
+        //score += brick.points;
 
         if (Cleared())
         {
-            LoadLevel(level + 1);
+            //LoadLevel(level + 1);
         }
     }
 
@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < bricks.Length; i++)
         {
-            if (bricks[i].gameObject.activeInHierarchy && !bricks[i].unbreakable)
+            if (bricks[i].gameObject.activeInHierarchy)
             {
                 return false;
             }
