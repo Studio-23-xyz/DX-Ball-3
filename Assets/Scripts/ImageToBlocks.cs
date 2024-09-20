@@ -7,10 +7,11 @@ public class ImageToBlocks : MonoBehaviour
     public GameObject BlueBlockPrefab;
     public GameObject GreenBlockPrefab;
 
-    public float BlockSize = 1.0f;
+    private Camera mainCamera;
 
     void Start()
     {
+        mainCamera = Camera.main;
         GenerateBlocksFromImage();
     }
 
@@ -20,6 +21,28 @@ public class ImageToBlocks : MonoBehaviour
         int width = Image.width;
         int height = Image.height;
 
+        // Get the camera bounds
+        float screenHeight = ScreenSizePrinter.Instance.Height;
+        float screenWidth = ScreenSizePrinter.Instance.Width;
+
+        // Determine the limiting factor (width or height)
+        float imageAspectRatio = (float)width / height;
+        float cameraAspectRatio = screenWidth / screenHeight;
+
+        float prefabScale;
+
+        if (imageAspectRatio > cameraAspectRatio)
+        {
+            // Image is wider than camera, limiting factor is width
+            prefabScale = screenWidth / width / RedBlockPrefab.GetComponent<BoxCollider2D>().size.x;
+        }
+        else
+        {
+            // Image is taller than camera, limiting factor is height
+            prefabScale = screenHeight / height / RedBlockPrefab.GetComponent<BoxCollider2D>().size.y;
+        }
+
+        // Resize prefabs and calculate positions
         for (int x = 0; x < width; x++)
         {
             for (int y = 0; y < height; y++)
@@ -30,19 +53,15 @@ public class ImageToBlocks : MonoBehaviour
 
                 if (blockToInstantiate != null)
                 {
-                    BoxCollider2D boundbox = blockToInstantiate.GetComponent<BoxCollider2D>();
-                    Vector3 position;
+                    // Set the prefab scale
+                    blockToInstantiate.transform.localScale = new Vector3(prefabScale, prefabScale, 1);
 
-                    if (boundbox != null)
-                    {
-                        position = new Vector3(x * boundbox.size.x * blockToInstantiate.transform.localScale.x,
-                                               y * boundbox.size.y * blockToInstantiate.transform.localScale.y,
-                                               0);
-                    }
-                    else
-                    {
-                        position = new Vector3(x * BlockSize, y * BlockSize, 0);
-                    }
+                    // Positioning each block directly on the pixel coordinates
+                    Vector3 position = new Vector3(
+                        (x * prefabScale * RedBlockPrefab.GetComponent<BoxCollider2D>().size.x) - (screenWidth / 2) + (prefabScale * RedBlockPrefab.GetComponent<BoxCollider2D>().size.x / 2),
+                        (y * prefabScale * RedBlockPrefab.GetComponent<BoxCollider2D>().size.y) - (screenHeight / 2) + (prefabScale * RedBlockPrefab.GetComponent<BoxCollider2D>().size.y / 2),
+                        0
+                    );
 
                     Instantiate(blockToInstantiate, position, Quaternion.identity, bricks.transform);
                 }
