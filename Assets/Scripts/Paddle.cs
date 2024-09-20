@@ -9,10 +9,24 @@ public class Paddle : MonoBehaviour
     public float Speed = 30f;
     public float MaxBounceAngle = 75f;
 
+    private PaddleInputActions _inputActions;
+
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
         Debug.Log("Paddle: Rigidbody2D component initialized.");
+
+        _inputActions = new PaddleInputActions();
+    }
+
+    private void OnEnable()
+    {
+        _inputActions.Player.Move.Enable();
+    }
+
+    private void OnDisable()
+    {
+        _inputActions.Player.Move.Disable();
     }
 
     private void Start()
@@ -30,21 +44,23 @@ public class Paddle : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-        {
-            _direction = Vector2.left;
-            Debug.Log("Paddle: Moving left.");
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            _direction = Vector2.right;
-            Debug.Log("Paddle: Moving right.");
-        }
-        else
-        {
-            _direction = Vector2.zero;
-            //Debug.Log("Paddle: No movement.");
-        }
+        //if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        //{
+        //    _direction = Vector2.left;
+        //    Debug.Log("Paddle: Moving left.");
+        //}
+        //else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        //{
+        //    _direction = Vector2.right;
+        //    Debug.Log("Paddle: Moving right.");
+        //}
+        //else
+        //{
+        //    _direction = Vector2.zero;
+        //    //Debug.Log("Paddle: No movement.");
+        //}
+        _direction = _inputActions.Player.Move.ReadValue<Vector2>();
+        _direction.y = 0;
     }
 
     private void FixedUpdate()
