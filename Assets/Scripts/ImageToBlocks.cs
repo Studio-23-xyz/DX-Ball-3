@@ -22,8 +22,8 @@ public class ImageToBlocks : MonoBehaviour
         int height = Image.height;
 
         // Get the camera bounds
-        float screenHeight = ScreenSizePrinter.Instance.Height;
-        float screenWidth = ScreenSizePrinter.Instance.Width;
+        float screenHeight = ScreenSizePrinter.Instance.Height - 5f;
+        float screenWidth = ScreenSizePrinter.Instance.Width - 5f;
 
         // Determine the limiting factor (width or height)
         float imageAspectRatio = (float)width / height;

@@ -14,7 +14,7 @@ public class Paddle : MonoBehaviour
     private void Awake()
     {
         _rb = GetComponent<Rigidbody2D>();
-        Debug.Log("Paddle: Rigidbody2D component initialized.");
+        //Debug.Log("Paddle: Rigidbody2D component initialized.");
 
         _inputActions = new PaddleInputActions();
     }
@@ -32,14 +32,14 @@ public class Paddle : MonoBehaviour
     private void Start()
     {
         ResetPaddle();
-        Debug.Log("Paddle: Initialized and reset to start position.");
+        //Debug.Log("Paddle: Initialized and reset to start position.");
     }
 
     public void ResetPaddle()
     {
         _rb.velocity = Vector2.zero;
         transform.position = new Vector2(0f, transform.position.y);
-        Debug.Log("Paddle: Position reset.");
+        //Debug.Log("Paddle: Position reset.");
     }
 
     private void Update()

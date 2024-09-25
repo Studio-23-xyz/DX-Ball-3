@@ -29,6 +29,5 @@ public class SceneController : MonoBehaviour
     private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
         SceneManager.sceneLoaded -= OnLevelLoaded;
-        //GameManager.Instance.OnLevelLoaded();
     }
 }

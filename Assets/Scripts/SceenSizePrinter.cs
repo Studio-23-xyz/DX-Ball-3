@@ -11,10 +11,11 @@ public class ScreenSizePrinter : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            //DontDestroyOnLoad(gameObject); 
+            //Debug.Log("ScreenSizePrinter Instance initialized.");
         }
         else
         {
+            Debug.LogWarning("Multiple instances of ScreenSizePrinter detected. Destroying duplicate.");
             Destroy(gameObject);
         }
     }
@@ -36,7 +37,9 @@ public class ScreenSizePrinter : MonoBehaviour
     {
         get
         {
-            return boxCollider.size.x * transform.localScale.x;
+            float width = boxCollider.size.x * transform.localScale.x;
+            //Debug.Log($"Calculated Width: {width}");
+            return width;
         }
     }
 
@@ -44,7 +47,9 @@ public class ScreenSizePrinter : MonoBehaviour
     {
         get
         {
-            return boxCollider.size.y * transform.localScale.y; 
+            float height = boxCollider.size.y * transform.localScale.y;
+            //Debug.Log($"Calculated Height: {height}");
+            return height;
         }
     }
 
@@ -58,12 +63,18 @@ public class ScreenSizePrinter : MonoBehaviour
             float screenWidth = screenHeight * mainCamera.aspect;
 
             boxCollider.size = new Vector2(screenWidth, screenHeight);
+
+            //Debug.Log($"Updated BoxCollider2D size: {boxCollider.size} based on screen dimensions: {screenWidth}x{screenHeight}");
+        }
+        else
+        {
+            Debug.LogError("Main Camera not found. Cannot update BoxCollider2D size.");
         }
     }
 
     void Update()
     {
-        Debug.Log("Collider Width: " + Width);
-        Debug.Log("Collider Height: " + Height);
+        //Debug.Log("Collider Width: " + Width);
+        //Debug.Log("Collider Height: " + Height);
     }
 }
